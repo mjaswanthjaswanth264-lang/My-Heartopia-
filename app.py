@@ -24,7 +24,7 @@ def save_wishes(wishes):
 
 @app.route("/")
 def home():
-    render_template("Index.html")
+    render_template("index.html")
 
 
 @app.route("/api/wishes", methods=["GET", "POST"])
