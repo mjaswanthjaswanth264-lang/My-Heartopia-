@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, jsonify
 import json
 import os
 
-app = Flask(__name__, template_folder="Templates", static_folder="Static")
+app = Flask(__name__)
 
 WISHES_FILE = os.path.join(
     os.path.dirname(os.path.abspath(__file__)),
