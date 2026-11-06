@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Heartopia - A Little World of Magic</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='Style.css'') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">♡ Heartopia</div>
+        <div class="nav-text">A little world of magic ✨</div>
+    </nav>
+
+    <main class="hero">
+
+        <div class="sparkle">✧</div>
+        <div class="sparkle sparkle-two">✦</div>
+
+        <div class="heart-container">
+            <div class="heart">♥</div>
+        </div>
+
+        <h1>Welcome to Heartopia</h1>
+
+        <p>
+            A little happiness, a little magic,
+            and a world full of beautiful surprises.
+        </p>
+
+        <button id="exploreBtn" onclick="document.getElementById('garden').scrollIntoView({behavior: 'smooth'});">
+    Explore the Magic ✨
+</button>
+
+        <div id="message" class="message">
+            You make the world a little brighter! 💗
+        </div>
+
+    </main>
+
+   
+<section class="garden">
+
+    <h2>Welcome to Heart Garden 🌷</h2>
+
+    <p class="garden-text">
+        Discover little moments of happiness.
+    </p>
+
+    <div class="garden-cards">
+
+        <div class="garden-card">
+            <div class="garden-icon">🌸</div>
+            <h3>Flower World</h3>
+            <p>A little garden full of beauty.</p>
+        </div>
+
+        <div class="garden-card">
+            <div class="garden-icon">🦋</div>
+            <h3>Butterfly Dreams</h3>
+            <p>Let your imagination fly.</p>
+        </div>
+
+        <div class="garden-card" onclick="gardenClick('flower')">
+            <div class="garden-icon">✨</div>
+            <h3>Magic Moments</h3>
+            <p>Discover something wonderful.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="mood-section">
+
+    <h2>How are you feeling today? 💗</h2>
+
+    <p>Choose your mood and discover a little magic.</p>
+
+    <div class="mood-options">
+
+        <button onclick="chooseMood('happy')">
+            😊 Happy
+        </button>
+
+        <button onclick="chooseMood('sad')">
+            🥺 Sad
+        </button>
+
+        <button onclick="chooseMood('calm')">
+            🌸 Calm
+        </button>
+
+        <button onclick="chooseMood('dreamy')">
+            ✨ Dreamy
+        </button>
+
+    </div>
+
+    <div id="mood-message">
+        Your little happiness awaits! 💕
+    </div>
+    <section class="love-garden" id="garden">
+    <h2>🌷 Interactive Love Garden</h2>
+    <p>Touch a flower and watch the magic! ✨</p>
+
+    <div class="flowers">
+        <button onclick="bloomFlower(this)">🌷</button>
+        <button onclick="bloomFlower(this)">🌸</button>
+        <button onclick="bloomFlower(this)">🌻</button>
+        <button onclick="bloomFlower(this)">🌺</button>
+    </div>
+
+    <p id="flower-message">
+        Your garden is waiting for you! 💗
+    </p>
+
+    <button onclick="showSecret()">💌 Reveal Secret Message</button>
+
+    <p id="secret-message"></p>
+</section>
+<section class="wish-box">
+    <h2>🎁 My Dream & Wish Box</h2>
+    <p id="wish-count">💗 0 Wishes in Your Garden</p>
+    <p>Write your dreams and let them shine! ✨</p>
+
+    <input
+        type="text"
+        id="wish-input"
+        placeholder="Write your beautiful wish..."
+    >
+
+    <button onclick="addWish()">💌 Save My Wish</button>
+
+    <div id="wish-list"></div>
+    <button onclick="clearAllWishes()">🗑️ Clear All Wishes</button>
+</section>
+<section class="quote-section">
+    <h2>💌 Your Daily Happiness</h2>
+    <p id="daily-quote">
+        Believe in yourself. Beautiful things take time! 🌸
+    </p>
+    <button onclick="newQuote()">New Quote ✨</button>
+</section>
+<section class="music-section">
+    <h2>🎵 Music Garden</h2>
+    <p>Relax your mind with peaceful music.</p>
+
+    <button onclick="toggleMusic()" id="music-btn">
+        ▶ Play Music
+    </button>
+
+    <audio id="garden-music" loop>
+        <source src="{{ url_for('static', filename='music.mp3') }}" type="audio/mpeg">
+    </audio>
+</section>
+  <section class="gallery-section">
+    <h2>📸 Heartopia Memory Gallery</h2>
+    <p>Beautiful moments, beautiful memories! 💗</p>
+
+    <div class="gallery-grid">
+        <div class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=500" alt="Flowers" onclick="openImage(this.src)">
+            <p>🌸 Flower Dreams</p>
+        </div>
+
+        <div class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=500" alt="Sunrise" onclick="openImage(this.src)">
+            <p>🌅 Golden Moments</p>
+        </div>
+
+        <div class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=500" alt="Nature" onclick="openImage(this.src)">
+            <p>🦋 Peaceful Nature</p>
+        </div>
+    </div>
+</section>
+<div class="image-viewer" id="image-viewer">
+    <span class="close-viewer" onclick="closeImage()">&times;</span>
+
+<button onclick="changeImage(-1)">⬅️</button>
+
+<img id="viewer-image" src="" alt="Full size memory">
+
+<button onclick="changeImage(1)">➡️</button>
+</div>
+      <script src="{{ url_for('static', filename='Script.js'') }}"></script>
+
+</body>
+</html>
+    
